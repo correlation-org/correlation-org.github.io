@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="all" name="robots" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Community studying and applying non-interactive information theoretically secure multi-party computation (MPC) protocols.">
+    <title>Non-Interactive Information-Theoretically Secure Multi-Party Computation</title>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,iVBORw0KGgo="><!-- Suppress browser favicon.ico request. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          crossorigin="anonymous">
+    <style>
+      html, body {
+        height:100%;
+        margin:0;
+        color:#555555;
+        font-family:'Lato',Helvetica,sans-serif;
+        font-size:18px;
+        font-weight:300;
+      }
+      body { margin:20px 0px 20px 0px; padding-top:70px; }
+      .content { padding-bottom:60px; }
+      .content .anchor { display:block; height:50px; margin-top:-50px; visibility:hidden; }
+      .splash { margin-top:30px; margin-bottom:40px; }
+      .content h1 { font-weight:400; font-size:34px; color:#333333; }
+      .content .sub-title {
+        margin:-8px 0px 22px 0px;
+        font-family:'Lato',Helvetica,sans-serif;
+        font-weight:400;
+        font-size:22px;
+        color:#333333;
+      }
+      .content .lead-intro {
+        font-family:'Lato',Helvetica,sans-serif;
+        font-weight:300;
+        font-size:18px;
+      }
+      .content h2 {
+        padding-bottom:3px;
+        border-bottom:1px solid #CCCCCC;
+        font-family:'Lato',Helvetica,sans-serif;
+        font-weight:400;
+        font-size:22px;
+        color:#333333;
+      }
+      .content h4 {
+        display:inline-block;
+        margin:20px 0px 0px 20px;
+        border-bottom:1px solid #CCCCCC;
+      }
+      .content p {
+        text-align:justify;
+        font-family:'Lato',Helvetica,sans-serif;
+        font-weight:400;
+        color:#000000;
+      }
+      .content ul {
+        margin:20px 20px 0px 20px;
+        font-family:'Lato',Helvetica,sans-serif;
+        font-weight:400;
+        color:#000000;
+      }
+      .content li { padding:10px 0px; }
+      .content .text { margin:20px 0px 0px 0px; }
+      .content a { color:#CC1212; text-decoration:none; }
+      .navbar { height:58px; padding-top:2px; }
+      .navbar img { margin-top:-2px; height:32px; }
+      .navbar a { color:#333333 !important; }
+      .navbar a:hover { color:#CC1212 !important; }
+      .navbar-nav > li > a { font-family:'Lato',Helvetica,sans-serif; font-weight:400; }
+      @media (max-width:992px) {
+        html, body { font-size:14px; }
+        .content li { padding:4px 0px; }
+        .content { margin-bottom:30px; }
+
+        /* Collapse navigation menu. */
+        .navbar-header { float:none; }
+        .navbar-left,.navbar-right { float:none !important; }
+        .navbar-toggle { display:block; }
+        .navbar-collapse {
+          border-top:1px solid transparent;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .navbar-fixed-top { top:0; border-width:0 0 1px; }
+        .navbar-collapse.collapse { display:none!important; }
+        .navbar-nav { float:none!important; margin-top:7.5px; }
+        .navbar-nav > li { float:none; }
+        .navbar-nav > li > a { padding-top:10px; padding-bottom:10px; }
+        .collapse.in{ display:block !important; }
+      }
+      @media (max-width:525px) {
+        .content h1 { font-size:26px; }
+        .content h4 { margin-left:10px; }
+        .content .lead-intro { font-size:14px; line-height:18px; }
+        .content li { line-height:18px; }
+        .content .text { line-height:18px; }
+      }
+    </style>
+    <script>
+      var favIcon = "iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAIAAAD9b0jDAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TtSItDnYQcchQnVoQFXGUKhbBQmkrtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE1cVJ0UVK/F9SaBHjwXE/3t173L0DhGaVqWbPHKBqlpFOxMVcflUMvCKIEPowgajETD2ZWczCc3zdw8fXuxjP8j735wgpBZMBPpF4jumGRbxBPLNp6Zz3icOsLCnE58RRgy5I/Mh12eU3ziWHBZ4ZNrLpeeIwsVjqYrmLWdlQiaeJI4qqUb6Qc1nhvMVZrdZZ+578hcGCtpLhOs1RJLCEJFIQIaOOCqqwEKNVI8VEmvbjHv4Rx58il0yuChg5FlCDCsnxg//B727N4tSkmxSMA70vtv0xBgR2gVbDtr+Pbbt1AvifgSut4681gdlP0hsdLXIEDG4DF9cdTd4DLneA4SddMiRH8tMUikXg/Yy+KQ8M3QIDa25v7X2cPgBZ6mr5Bjg4BMZLlL3u8e7+7t7+PdPu7wfuanLYVq+PWwAAAAZiS0dEAMwAEgASOb248wAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAXdJREFUSMfVlM1xwjAQhXc9rsA+hTOpgBqCqJAW3MKuaAEqIGdzcg0vh4eF/IMhmXBgxzPWWtq19PTNUwDy31HIC+IlTUu+VD85AM4icqprppuuGy74plzLqQAQWQMwi3yOVQWgdW/dOU4LRMTM7qVm0cwAXJuaRfRxrKrWPR+LrEXW3AG78JmmjPJJmcz2IqKqPOBs6n4I4euqKXDONd103amu217TS4ycYoG7j9Ks/KppkXqZ7flD9lo1zappLjF+bLe8vf4CZJRm5ZG/1LeBvyRl6UQ9lZpOp6q8+qQaZ9OCKdQzSGXoCL+QmwGJImZmZlOo5zkdkmT9x/EaTk2hBlDcodK4079rOgVNREII92qo6W63AzALdTEFLaPvJkV+k1TZzEjlCOq34zQZ4ojWFE/Yqw7kGtrlzb5yJ3xkrzeVZzgdwfi0vUri73d+umyvbKeq7h5CKBdgZMFDe01uAICQFUN/HMCY/HjZXpMO3OZbcfqSpj/qOUkKYHjn2gAAAABJRU5ErkJggg==";
+      var docHead = document.getElementsByTagName('head')[0];
+      var newLink = document.createElement('link');
+      newLink.rel = 'shortcut icon';
+      newLink.type = 'image/x-icon';
+      newLink.href = 'data:image/png;base64,'+favIcon;
+      docHead.appendChild(newLink);
+      $(document).on('click','.navbar-collapse.in',function(e) {
+        if($(e.target).is('a')) {
+          $(this).collapse('hide');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALYAAABaCAYAAAAVdqz9AAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TtSItDnYQcchQnVoQFXGUKhbBQmkrtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE1cVJ0UVK/F9SaBHjwXE/3t173L0DhGaVqWbPHKBqlpFOxMVcflUMvCKIEPowgajETD2ZWczCc3zdw8fXuxjP8j735wgpBZMBPpF4jumGRbxBPLNp6Zz3icOsLCnE58RRgy5I/Mh12eU3ziWHBZ4ZNrLpeeIwsVjqYrmLWdlQiaeJI4qqUb6Qc1nhvMVZrdZZ+578hcGCtpLhOs1RJLCEJFIQIaOOCqqwEKNVI8VEmvbjHv4Rx58il0yuChg5FlCDCsnxg//B727N4tSkmxSMA70vtv0xBgR2gVbDtr+Pbbt1AvifgSut4681gdlP0hsdLXIEDG4DF9cdTd4DLneA4SddMiRH8tMUikXg/Yy+KQ8M3QIDa25v7X2cPgBZ6mr5Bjg4BMZLlL3u8e7+7t7+PdPu7wfuanLYVq+PWwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAvZJREFUeNrt3cFt20AQBdBloAoMn3J2CalBZgmRSkhcT2qRXYNK4NlHlyDlECRAwJE9FpcUKb13NGitJH8s+EFy3JRJPRzP/92uyRy1v7s7e41vb2/N+J+ti37YXO8a0et1zdhJ+1LgCgk2gg2CDRe0mrYo9kvDbveSLXu94+6331MF8PX5ObXGfrM55grl+Z+tbdelf9wuOO6pzHmN2CG1xon3XLVQ2rFxKgKCDYINiymPZfTSEF1ljIri18fHpu7r/UyV5ajElfgKYLKcRWv8uNAaXeUrmXZsEGwEGwQblMcbsNv9Sh3XtuugnLWpq5tzWiMqo7WvHtqxQbARbBBsmI+JT/aX98xj9spjVLpOlKmgsO2C332aYI22Of9vNO9nN+3YOBUBwQbBhromvvJY95nHqDgNeebxNVgje8trSd8Wmr2ltGvGX6P23+iQvOI5/hp2bJyKgGCDYENdzQhF6J3XeRhSPGu/93M+TyllERNdm1sPth0bwQbBBsGG+uXxmClR8bTO9lMFLDvx8+Pn7g4leC9NvsTGt3FG7rfbVAFMX93cbJKFcshE1yEDbuzYINgg2CDY0LfKlq0TRTFZEP8UuyHP2E0xjCV6f3Oa6JqfVhsNwnmZ9YAbOzYINoINgg0LLI/Zq3LZQgl2bBBsEGwEG66wPJ4oikMGuEwpeSUzV3yjW0r3m01vjexzkOEtr/P8Hu3YINgg2CDY8F95vNBUz7+62qU09bxmtnhGpXn+E127pRR9OzYINoLtK0CwYSEaX8E8LWCi65A8jT4R146NUxEQbBBsUB5voijOf6LruvSP6z8rm53I+4mrw9Ea/s8jTkVAsEGwYWQrX8E8XWqia1Qoo6JYBtyy/N5E3nNez46NUxEQbBBsUB6Z2Mf/Y/NfoRy9AGYLalRG7dg4FQHBBsEG5XFJjplCNPeJrif+H2SqxEWFsm3b44CSmXovdmycioBgg2CD8rgkqWf7ljnRte6U3toTce3YOBUBwQbBhrp+A3n8dWwwlfOVAAAAAElFTkSuQmCC" alt="correlation.org" /></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#background">Background Reading</a></li>
+            <li><a href="#acknowledgments">Acknowledgments</a></li>
+            <li><a href="mailto:contact@correlation.org">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container content">
+      <div class="row splash">
+        <div class="col-sm-12">
+          <h1 class="mt-5">Non-Interactive Information Theoretically Secure Multi-Party Computation</h1>
+          <p class="sub-title">
+            via Correlated Randomness and Other Techniques
+          </p>
+          <p class="lead-intro">
+            This community aims to study non-interactive (NI) information-theoretically secure (ITS) multi-party computation (MPC) protocols, to identify use cases for which such protocols are well-suited, and to promote these findings to the wider community of researchers and practitioners.
+          </p>
+        </div>
+      </div>
+      <span id="background" class="anchor"></span>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Background Reading</h2>
+          <ul class="list-unstyled">
+            <li>
+              <b><a href="https://doi.org/10.3233/978-1-61499-169-4-222">Randomization Techniques for Secure Computation</a>.</b>
+              <br/>Yuval Ishai
+              <br/><i>Secure Multi-Party Computation</i>, vol. 10 of <i>Cryptology and Information Security Series</i>, 222&ndash;248. IOS Press, 2013.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <span id="acknowledgments" class="anchor"></span>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Acknowledgments</h2>
+          <div class="text">
+            <p>
+              Participating organizations supporting this effort include <a href="https://reity.org">Reity</a> and <a href="https://nillion.com">Nillion</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+            crossorigin="anonymous">
+    </script>
+  </body>
+</html>
