@@ -7,7 +7,7 @@
     <meta name="description" content="Community studying and applying non-interactive information theoretically secure multi-party computation (MPC) protocols.">
     <title>Non-Interactive Information-Theoretically Secure Multi-Party Computation</title>
     <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,iVBORw0KGgo="><!-- Suppress browser favicon.ico request. -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200..900&family=Lato:wght@200..900&display=auto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
           crossorigin="anonymous">
@@ -16,31 +16,25 @@
         height:100%;
         margin:0;
         color:#555555;
-        font-family:'Lato',Helvetica,sans-serif;
+        font-family:'Noto Sans',Helvetica,sans-serif;
         font-size:18px;
         font-weight:300;
       }
-      body { margin:20px 0px 20px 0px; padding-top:70px; }
+      body { margin:0px 0px 20px 0px; padding-top:70px; }
       .content { padding-bottom:60px; }
       .content .anchor { display:block; height:50px; margin-top:-50px; visibility:hidden; }
-      .splash { margin-top:30px; margin-bottom:40px; }
-      .content h1 { font-weight:400; font-size:34px; color:#333333; }
+      .splash { margin-top:50px; margin-bottom:40px; }
+      .content h1 { font-weight:400; font-size:32px; color:#333333; }
       .content .sub-title {
         margin:-8px 0px 22px 0px;
-        font-family:'Lato',Helvetica,sans-serif;
         font-weight:400;
         font-size:22px;
         color:#333333;
       }
-      .content .lead-intro {
-        font-family:'Lato',Helvetica,sans-serif;
-        font-weight:300;
-        font-size:18px;
-      }
+      .content .lead-intro { font-weight:300; }
       .content h2 {
         padding-bottom:3px;
         border-bottom:1px solid #CCCCCC;
-        font-family:'Lato',Helvetica,sans-serif;
         font-weight:400;
         font-size:22px;
         color:#333333;
@@ -52,28 +46,30 @@
       }
       .content p {
         text-align:justify;
-        font-family:'Lato',Helvetica,sans-serif;
-        font-weight:400;
+        font-weight:300;
         color:#000000;
       }
       .content ul {
         margin:20px 20px 0px 20px;
-        font-family:'Lato',Helvetica,sans-serif;
-        font-weight:400;
+        font-weight:300;
         color:#000000;
       }
       .content li { padding:10px 0px; }
       .content .text { margin:20px 0px 0px 0px; }
       .content a { color:#CC1212; text-decoration:none; }
-      .navbar { height:58px; padding-top:2px; }
+      .navbar { padding-top:4px; padding-bottom:5px; }
       .navbar img { margin-top:-2px; height:32px; }
       .navbar a { color:#333333 !important; }
       .navbar a:hover { color:#CC1212 !important; }
-      .navbar-nav > li > a { font-family:'Lato',Helvetica,sans-serif; font-weight:400; }
-      @media (max-width:992px) {
+      .navbar-nav > li > a { font-weight:400; }
+      @media (max-width:991px) {
         html, body { font-size:14px; }
+        .content h1 { font-size:24px; }
+        .content .sub-title { font-size:18px; }
+        .content h2 { font-size:18px; }
         .content li { padding:4px 0px; }
         .content { margin-bottom:30px; }
+        .splash { margin-top:40px; margin-bottom:30px; }
 
         /* Collapse navigation menu. */
         .navbar-header { float:none; }
@@ -106,11 +102,6 @@
       newLink.type = 'image/x-icon';
       newLink.href = 'data:image/png;base64,'+favIcon;
       docHead.appendChild(newLink);
-      $(document).on('click','.navbar-collapse.in',function(e) {
-        if($(e.target).is('a')) {
-          $(this).collapse('hide');
-        }
-      });
     </script>
   </head>
   <body>
@@ -142,7 +133,7 @@
             via Correlated Randomness and Other Techniques
           </p>
           <p class="lead-intro">
-            This community aims to study non-interactive (NI) information-theoretically secure (ITS) multi-party computation (MPC) protocols, to identify use cases for which such protocols are well-suited, and to promote these findings to the wider community of researchers and practitioners.
+            The purpose of this effort is to study non-interactive (NI) information-theoretically secure (ITS) multi-party computation (MPC) protocols, to identify use cases for which such protocols are well-suited, and to promote these findings to the wider community of researchers and practitioners.
           </p>
         </div>
       </div>
@@ -155,6 +146,11 @@
               <b><a href="https://doi.org/10.3233/978-1-61499-169-4-222">Randomization Techniques for Secure Computation</a>.</b>
               <br/>Yuval Ishai
               <br/><i>Secure Multi-Party Computation</i>, vol. 10 of <i>Cryptology and Information Security Series</i>, 222&ndash;248. IOS Press, 2013.
+            </li>
+            <li>
+              <b><a href="https://doi.org/10.1007/978-3-642-36594-2_34">On the Power of Correlated Randomness in Secure Computation</a>.</b>
+              <br/>Yuval Ishai, Eyal Kushilevitz, Sigurd Meldgaard, Claudio Orlandi, and Anat Paskin-Cherniavsky
+              <br/><i>Theory of Cryptography</i>, vol. 7785 of <i>Lecture Notes in Computer Science</i>, 600&ndash;620. Springer, 2013.
             </li>
           </ul>
         </div>
@@ -175,6 +171,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
             crossorigin="anonymous">
+    </script>
+    <script>
+      $(document).on('click','.navbar-collapse.in',function(e) {
+        if($(e.target).is('a')) {
+          $(this).collapse('hide');
+        }
+      });
     </script>
   </body>
 </html>
